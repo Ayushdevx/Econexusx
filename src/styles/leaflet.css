@@ -1,0 +1,658 @@
+/* Main Leaflet CSS */
+@import url('https://unpkg.com/leaflet@1.9.4/dist/leaflet.css');
+
+/* Custom styling for map elements */
+.info-overlay {
+  padding: 6px 8px;
+  font: 14px/16px Arial, Helvetica, sans-serif;
+  background: white;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+  border-radius: 5px;
+}
+
+.info-overlay h4 {
+  margin: 0 0 5px;
+  color: #777;
+}
+
+.legend {
+  line-height: 18px;
+  color: #555;
+}
+
+.legend i {
+  width: 18px;
+  height: 18px;
+  float: left;
+  margin-right: 8px;
+  opacity: 0.7;
+}
+
+/* Marker Cluster Styling */
+.marker-cluster {
+  background-clip: padding-box;
+  border-radius: 50%;
+}
+
+.marker-cluster div {
+  width: 36px;
+  height: 36px;
+  margin-left: 2px;
+  margin-top: 2px;
+  text-align: center;
+  border-radius: 50%;
+  font-size: 14px;
+  line-height: 36px;
+  font-weight: bold;
+}
+
+.cluster-inner {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  width: 100%;
+  border-radius: 50%;
+  color: white;
+  font-weight: bold;
+  text-shadow: 0 0 2px rgba(0,0,0,0.5);
+}
+
+.cluster-normal {
+  background-color: rgba(54, 211, 153, 0.6);
+  border: 3px solid rgba(54, 211, 153, 1);
+}
+
+.cluster-warning {
+  background-color: rgba(251, 189, 35, 0.6);
+  border: 3px solid rgba(251, 189, 35, 1);
+  animation: pulse-cluster 2s infinite;
+}
+
+.cluster-critical {
+  background-color: rgba(248, 114, 114, 0.6);
+  border: 3px solid rgba(248, 114, 114, 1);
+  animation: pulse-cluster 1.5s infinite;
+}
+
+@keyframes pulse-cluster {
+  0% {
+    box-shadow: 0 0 0 0 rgba(248, 114, 114, 0.7);
+  }
+  70% {
+    box-shadow: 0 0 0 10px rgba(248, 114, 114, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(248, 114, 114, 0);
+  }
+}
+
+/* Pulse animation for markers */
+@keyframes pulse {
+  0% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+  100% {
+    opacity: 0.7;
+    transform: scale(0.8);
+  }
+}
+
+.pulse-circle {
+  animation: pulse 1.5s infinite;
+}
+
+.pulse-circle.slow {
+  animation: pulse 3s infinite;
+}
+
+/* Ripple animation for circles */
+@keyframes ripple {
+  0% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+  50% {
+    opacity: 0.2;
+    transform: scale(1.1);
+  }
+  100% {
+    opacity: 0.8;
+    transform: scale(0.8);
+  }
+}
+
+.ripple-circle {
+  animation: ripple 2s infinite;
+}
+
+/* Voltage surge animation */
+@keyframes voltage-flicker {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.3; }
+}
+
+.power-surge-circle {
+  animation: voltage-flicker 0.5s infinite;
+}
+
+/* Flicker effect for unstable power */
+@keyframes flicker {
+  0% { opacity: 0.8; }
+  25% { opacity: 0.4; }
+  50% { opacity: 0.6; }
+  75% { opacity: 0.3; }
+  100% { opacity: 0.8; }
+}
+
+.flicker-circle {
+  animation: flicker 3s infinite;
+}
+
+/* Flow line animations */
+@keyframes flow {
+  0% {
+    stroke-dashoffset: 24;
+  }
+  100% {
+    stroke-dashoffset: 0;
+  }
+}
+
+.flow-line {
+  animation: flow 1s linear infinite;
+}
+
+.critical-flow {
+  stroke: #F87272;
+}
+
+.warning-flow {
+  stroke: #FBBD23;
+}
+
+/* Power line animation */
+.power-line-animated {
+  animation: dash 1s linear infinite;
+}
+
+.power-line-animated.reverse {
+  animation: dash-reverse 1s linear infinite;
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: -30;
+  }
+}
+
+@keyframes dash-reverse {
+  to {
+    stroke-dashoffset: 30;
+  }
+}
+
+/* Radar sweep effect */
+.radar-sweep {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  position: relative;
+  overflow: hidden;
+}
+
+.radar-sweep::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: conic-gradient(from 0deg, rgba(248, 114, 114, 0) 0%, rgba(248, 114, 114, 0) 90%, rgba(248, 114, 114, 0.8) 95%, rgba(248, 114, 114, 0) 100%);
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Marker Animations */
+.marker-hover {
+  filter: brightness(1.3) drop-shadow(0 0 5px rgba(255,255,255,0.7));
+  transform: scale(1.2) !important;
+  transition: all 0.2s ease;
+  z-index: 1000 !important;
+}
+
+.vibrating-marker {
+  animation: vibrate 0.1s linear infinite;
+}
+
+@keyframes vibrate {
+  0%, 100% {
+    transform: translate(0, 0);
+  }
+  25% {
+    transform: translate(var(--vibration-intensity, 1px), var(--vibration-intensity, 1px));
+  }
+  50% {
+    transform: translate(0, var(--vibration-intensity, 1px));
+  }
+  75% {
+    transform: translate(var(--vibration-intensity, 1px), 0);
+  }
+}
+
+/* Break marker animation */
+.break-marker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
+.break-marker .lightning {
+  animation: pulse-break 1s infinite;
+  font-size: 20px;
+}
+
+@keyframes pulse-break {
+  0%, 100% {
+    opacity: 1;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(0.8);
+  }
+}
+
+/* Voltage surge particle animation */
+.surge-particle {
+  width: 10px;
+  height: 10px;
+  background-color: #F87272;
+  border-radius: 50%;
+  box-shadow: 0 0 10px #F87272;
+  animation: move-particle 3s infinite linear;
+  animation-delay: var(--delay, 0s);
+}
+
+@keyframes move-particle {
+  0% {
+    transform: translate(0, 0);
+    opacity: 1;
+  }
+  100% {
+    transform: translate(
+      calc((var(--end-lat) - var(--start-lat)) * 10000px),
+      calc((var(--end-lng) - var(--start-lng)) * 10000px)
+    );
+    opacity: 0;
+  }
+}
+
+/* Power Grid Legend */
+.power-grid-legend {
+  background: white;
+  background: rgba(255, 255, 255, 0.9);
+  padding: 10px;
+  border-radius: 5px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.power-grid-legend h4 {
+  margin: 0 0 5px;
+  font-size: 14px;
+  color: #555;
+}
+
+.grid-item {
+  display: flex;
+  align-items: center;
+  margin: 3px 0;
+  font-size: 12px;
+}
+
+.line-sample {
+  display: inline-block;
+  width: 30px;
+  height: 3px;
+  margin-right: 8px;
+}
+
+.line-sample.broken {
+  background: #FBBD23;
+  border-top: 1px dashed #FBBD23;
+}
+
+.line-sample.surge {
+  background: #F87272;
+}
+
+.line-sample.stable {
+  background: #36D399;
+}
+
+/* Interactive Popup Styles */
+.interactive-popup .leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.3);
+}
+
+.animated-title {
+  animation: fade-in 0.5s ease-out;
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.status-badge {
+  animation: pulse-badge 2s infinite;
+}
+
+@keyframes pulse-badge {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+.temperature-icon, .vibration-icon {
+  display: inline-block;
+  margin-left: 5px;
+  animation: shake 0.5s infinite;
+}
+
+@keyframes shake {
+  0%, 100% { transform: rotate(0deg); }
+  25% { transform: rotate(10deg); }
+  75% { transform: rotate(-10deg); }
+}
+
+.diagnostic-list {
+  list-style-type: none;
+  padding-left: 5px;
+}
+
+.diagnostic-item {
+  padding: 3px 0;
+  padding-left: 15px;
+  position: relative;
+  animation: slide-in 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation-delay: var(--delay, 0s);
+}
+
+.diagnostic-item::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+}
+
+.diagnostic-item.critical::before {
+  background-color: #F87272;
+}
+
+.diagnostic-item.warning::before {
+  background-color: #FBBD23;
+}
+
+@keyframes slide-in {
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* Gauge animation */
+.gauge-container {
+  position: relative;
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.gauge-fill {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: var(--percentage, 50%);
+  background-color: var(--color, #36D399);
+  border-radius: 5px;
+  animation: fill 1s ease-out;
+}
+
+@keyframes fill {
+  from { width: 0; }
+  to { width: var(--percentage, 50%); }
+}
+
+/* Power Issues Popup */
+.power-issue-popup-container .leaflet-popup-content-wrapper {
+  border-radius: 8px;
+  box-shadow: 0 3px 14px rgba(0, 0, 0, 0.3);
+}
+
+.issue-badge {
+  display: flex;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 4px;
+  color: white;
+  margin: 5px 0;
+  animation: pulse-badge 2s infinite;
+}
+
+.issue-icon {
+  margin-right: 5px;
+  font-size: 16px;
+}
+
+.critical-status {
+  color: #F87272;
+  font-weight: bold;
+}
+
+.cause-description {
+  font-style: italic;
+  animation: fade-in 0.7s ease-out;
+}
+
+.impact-meter {
+  height: 10px;
+  background-color: #e0e0e0;
+  border-radius: 5px;
+  margin: 5px 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.impact-fill {
+  height: 100%;
+  width: var(--impact-level, 50%);
+  background-color: var(--impact-color, #F87272);
+  animation: fill 1s ease-out;
+}
+
+.impact-label {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 10px;
+  color: #333;
+  text-shadow: 0 0 2px white;
+}
+
+.action-list {
+  list-style-type: none;
+  padding-left: 0;
+  margin: 10px 0;
+}
+
+.action-item {
+  padding: 3px 0;
+  padding-left: 20px;
+  position: relative;
+  animation: slide-in 0.5s ease-out forwards;
+  opacity: 0;
+  transform: translateX(-10px);
+  animation-delay: var(--delay, 0s);
+}
+
+.action-item::before {
+  content: "→";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  color: #F87272;
+}
+
+.pulse-warning {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: #F87272;
+  border-radius: 50%;
+  margin-right: 10px;
+  animation: pulse 1s infinite;
+}
+
+.estimated-time {
+  display: flex;
+  align-items: center;
+  margin-top: 10px;
+  padding: 5px;
+  background-color: rgba(0,0,0,0.05);
+  border-radius: 4px;
+}
+
+.time-icon {
+  margin-right: 10px;
+  font-size: 18px;
+}
+
+.time-details {
+  flex: 1;
+}
+
+.time-label {
+  font-size: 12px;
+  color: #555;
+}
+
+.time-value {
+  font-weight: bold;
+}
+
+/* Break popup styling */
+.break-popup .leaflet-popup-content-wrapper {
+  background-color: rgba(30, 30, 30, 0.9);
+  color: white;
+  border-radius: 8px;
+}
+
+.break-popup .leaflet-popup-tip {
+  background-color: rgba(30, 30, 30, 0.9);
+}
+
+.break-details h4 {
+  margin: 0 0 5px;
+  color: #FBBD23;
+}
+
+.break-status {
+  margin: 10px 0;
+  display: flex;
+  align-items: center;
+}
+
+.status-dot {
+  display: inline-block;
+  width: 8px;
+  height: 8px;
+  background-color: #F87272;
+  border-radius: 50%;
+  margin-right: 5px;
+  animation: pulse 1s infinite;
+}
+
+.break-tooltip {
+  background-color: rgba(30, 30, 30, 0.9);
+  color: white;
+  border: none;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+}
+
+.break-tooltip::before {
+  border-top-color: rgba(30, 30, 30, 0.9);
+}
+
+/* Marker icon customizations */
+.power-issue-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Custom popup styles */
+.leaflet-popup-content {
+  margin: 13px 19px;
+  line-height: 1.4;
+}
+
+.leaflet-popup-content h3 {
+  margin: 0 0 10px 0;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
+  .info-overlay {
+    padding: 4px 6px;
+    font-size: 12px;
+  }
+  
+  .leaflet-popup-content {
+    max-width: 250px;
+  }
+} 

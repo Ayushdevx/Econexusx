@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply font-sans antialiased;
+  }
+
+  /* Theme transition */
+  * {
+    transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+    transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+    transition-duration: 150ms;
+  }
+}
+
+@layer components {
+  .card {
+    @apply rounded-xl shadow-md overflow-hidden;
+  }
+
+  .btn {
+    @apply font-medium;
+  }
+
+  .badge {
+    @apply font-medium;
+  }
+
+  .tooltip {
+    @apply z-50;
+  }
+
+  .dropdown-content {
+    @apply shadow-lg rounded-xl;
+  }
+
+  .menu {
+    @apply rounded-xl;
+  }
+  
+  /* Fix for text overflow */
+  .card-title, .stat-title, .stat-value {
+    @apply truncate;
+    max-width: 100%;
+  }
+  
+  /* Fix for pie chart text */
+  .recharts-text.recharts-label {
+    @apply text-sm;
+    dominant-baseline: central;
+  }
+  
+  /* Map scrolling fixes */
+  .leaflet-container {
+    z-index: 10;
+  }
+  
+  .sticky {
+    z-index: 30;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-accent;
+  }
+
+  .bg-grid {
+    background-size: 40px 40px;
+    background-image: linear-gradient(to right, theme('colors.base-300/10') 1px, transparent 1px),
+                      linear-gradient(to bottom, theme('colors.base-300/10') 1px, transparent 1px);
+  }
+
+  .bg-dot-pattern {
+    background-image: radial-gradient(theme('colors.base-300/20') 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+}
