@@ -155,7 +155,7 @@ Companion app features:
   </div>
   <div style="margin: 10px; text-align: center;">
     <a href="https://github.com/rasika-gup" target="_blank">
-      <img src="https://avatars.githubusercontent.com/u/87654321?v=4" style="width: 100px; border-radius: 50%;" alt="Rasika Gupta"/>
+      <img src="https://avatars.githubusercontent.com/u/188229368?v=4" style="width: 100px; border-radius: 50%;" alt="Rasika Gupta"/>
     </a>
     <br>
     <strong>Rasika Gupta</strong>
