@@ -13,6 +13,7 @@ import WeatherImpactWidget from '../components/dashboard/WeatherImpactWidget';
 import CostSavingsWidget from '../components/dashboard/CostSavingsWidget';
 import AlertsWidget from '../components/dashboard/AlertsWidget';
 import RealTimeEnergyGauge from '../components/dashboard/RealTimeEnergyGauge';
+import InteractiveEnergyFlowChart from '../components/dashboard/InteractiveEnergyFlowChart';
 import {
   Battery,
   Zap,
@@ -216,6 +217,7 @@ const Dashboard = () => {
         { id: 'stats', visible: true },
         { id: 'realtime', visible: true },
         { id: 'consumption', visible: true },
+        { id: 'interactive', visible: true },
         { id: 'distribution', visible: true },
         { id: 'heatmap', visible: true },
         { id: 'map', visible: true },
@@ -342,6 +344,13 @@ const Dashboard = () => {
             {isWidgetVisible('consumption') && (
               <div className={dashboardLayout.overview.expanded ? 'col-span-1' : 'col-span-1 lg:col-span-2'}>
                 <EnergyConsumptionChart />
+              </div>
+            )}
+
+            {/* Interactive Energy Flow Chart */}
+            {isWidgetVisible('interactive') && (
+              <div className={dashboardLayout.overview.expanded ? 'col-span-1' : 'col-span-1 lg:col-span-2'}>
+                <InteractiveEnergyFlowChart />
               </div>
             )}
 

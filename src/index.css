@@ -45,24 +45,24 @@
   .menu {
     @apply rounded-xl;
   }
-  
+
   /* Fix for text overflow */
   .card-title, .stat-title, .stat-value {
     @apply truncate;
     max-width: 100%;
   }
-  
+
   /* Fix for pie chart text */
   .recharts-text.recharts-label {
     @apply text-sm;
     dominant-baseline: central;
   }
-  
+
   /* Map scrolling fixes */
   .leaflet-container {
     z-index: 10;
   }
-  
+
   .sticky {
     z-index: 30;
   }
@@ -86,5 +86,45 @@
   .bg-dot-pattern {
     background-image: radial-gradient(theme('colors.base-300/20') 1px, transparent 1px);
     background-size: 20px 20px;
+  }
+
+  /* Custom animations for interactive charts */
+  @keyframes pulse-glow {
+    0%, 100% {
+      opacity: 0.6;
+      filter: blur(8px);
+    }
+    50% {
+      opacity: 1;
+      filter: blur(12px);
+    }
+  }
+
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0);
+    }
+    50% {
+      transform: translateY(-10px);
+    }
+  }
+
+  @keyframes ping-slow {
+    75%, 100% {
+      transform: scale(2);
+      opacity: 0;
+    }
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 2s ease-in-out infinite;
+  }
+
+  .animate-float {
+    animation: float 3s ease-in-out infinite;
+  }
+
+  .animate-ping-slow {
+    animation: ping-slow 2s cubic-bezier(0, 0, 0.2, 1) infinite;
   }
 }

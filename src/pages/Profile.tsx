@@ -60,9 +60,9 @@ const Profile = () => {
   const [showNotifications, setShowNotifications] = useState(false);
 
   const userData = {
-    name: 'Harry Potter',
+    name: 'Ayush Upadhyay',
     role: 'Senior Energy Manager',
-    email: 'harry.potter@gmail.com',
+    email: 'Ayush.Upadhyay@gmail.com',
     phone: '+91 9305183418',
     company: 'NoKkia Telecom pvt ltd',
     certifications: [
