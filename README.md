@@ -17,7 +17,7 @@
 
 ---
 
-## 🏆 DevHouse 25 Hackathon Winner - Sustainability Track
+## 🏆 DevHouse 25 Hackathon - Sustainability Track
 
 **EcoNexus** is an intelligent web platform complementing our [mobile application](https://github.com/shkshreyas/Eco-Nexus-APK) that empowers users to:
 - Reduce energy consumption by up to **25%** through behavioral changes
