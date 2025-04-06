@@ -147,8 +147,8 @@ Companion app features:
 
 <div style="display: flex; justify-content: center; flex-wrap: wrap;">
   <div style="margin: 10px; text-align: center;">
-    <a href="https://github.com/arunima-sakharkar" target="_blank">
-      <img src="https://avatars.githubusercontent.com/u/12345678?v=4" style="width: 100px; border-radius: 50%;" alt="Arunima Sakharkar"/>
+    <a href="https://github.com/arunima072004" target="_blank">
+      <img src="https://avatars.githubusercontent.com/u/201281785?v=4" style="width: 100px; border-radius: 50%;" alt="Arunima Sakharkar"/>
     </a>
     <br>
     <strong>Arunima Sakharkar</strong>
